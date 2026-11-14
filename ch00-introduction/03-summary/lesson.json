@@ -1,0 +1,7 @@
+{
+  "title": "Summary: Introduction",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Recall the claim the tutorial rests on, the parts of the library, and the hand-worked invoice that the tests will check against.",
+  "prerequisites": ["The Invoicing Library"]
+}

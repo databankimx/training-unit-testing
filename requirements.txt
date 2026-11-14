@@ -1,0 +1,4 @@
+# Python packages for the tutorial's samples and tests. Install with:
+#   python -m pip install -r requirements.txt
+# The tutorial uses no other Python packages. The invoicing library itself uses only the standard library.
+pytest==9.2.0

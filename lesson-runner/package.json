@@ -1,0 +1,22 @@
+{
+  "name": "training-unit-testing-runner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lesson runner for the Unit Testing With Fixtures and Mocks tutorial: rendered lessons, language tabs, homework, and Run and Check in C#, Python, and JavaScript",
+  "main": "main.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/catalog.test.js test/markdown.test.js test/state.test.js test/window-state.test.js test/run.test.js test/highlight.test.js test/check.test.js test/shadow.test.js test/gating.test.js test/sample.test.js test/sources.test.js test/data-files.test.js test/text-editor.test.js test/images.test.js test/parts.test.js test/tests.test.js test/readonly.test.js test/library.test.js test/edit.test.js test/editor.test.js test/prettify.test.js test/csharp.test.js"
+  },
+  "dependencies": {
+    "highlight.js": "^11.10.0",
+    "markdown-it": "^15.0.3"
+  },
+  "devDependencies": {
+    "electron": "45.2.3"
+  }
+}

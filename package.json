@@ -1,0 +1,18 @@
+{
+  "name": "training-unit-testing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Unit Testing With Fixtures and Mocks: the lesson runner and the JavaScript samples, installed together from the root.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "lesson-runner",
+    "samples/javascript"
+  ],
+  "scripts": {
+    "start": "npm start --workspace lesson-runner",
+    "test": "npm test --workspace lesson-runner"
+  }
+}

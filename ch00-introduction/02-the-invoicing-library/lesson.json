@@ -1,0 +1,7 @@
+{
+  "title": "The Invoicing Library",
+  "runtime": "none",
+  "minutes": 12,
+  "objective": "Describe the parts of the invoicing library, work out one invoice by hand, and recognize the same invoice written in each language.",
+  "prerequisites": ["What This Tutorial Covers"]
+}

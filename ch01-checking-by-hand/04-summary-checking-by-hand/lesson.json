@@ -1,0 +1,7 @@
+{
+  "title": "Summary: Checking by Hand",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Explain why a check by eye falls short, and what a test adds to it.",
+  "prerequisites": ["The Same Check as a Test"]
+}

@@ -1,0 +1,11 @@
+{
+  "parts": [
+    {
+      "title": "Part I - Foundations",
+      "chapters": [
+        "ch00-introduction",
+        "ch01-checking-by-hand"
+      ]
+    }
+  ]
+}

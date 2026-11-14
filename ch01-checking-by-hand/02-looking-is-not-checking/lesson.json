@@ -1,0 +1,7 @@
+{
+  "title": "Looking Is Not Checking",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Run a broken rule beside the real one, and see why a check by eye can pass for the wrong reason.",
+  "prerequisites": ["Run It and Look"]
+}

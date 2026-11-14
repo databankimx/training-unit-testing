@@ -1,0 +1,19 @@
+{
+  "title": "The Same Check as a Test",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Write the rounding check as a test in each language, and see the test fail when the rounding rule breaks.",
+  "prerequisites": [
+    "Looking Is Not Checking"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library"
+}

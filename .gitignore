@@ -147,3 +147,54 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Build and test output for the samples
+
+# C# (the library and its NUnit test project)
+[Bb]in/
+[Oo]bj/
+TestResults/
+*.trx
+*.user
+*.suo
+.vs/
+publish/
+*.nupkg
+*.dll
+*.exe
+*.pdb
+
+# Python (the invoicing package and pytest)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+*.egg-info/
+
+# Node (the lesson runner and the JavaScript samples)
+# Each JavaScript run gets a folder here, with a copy of the invoicing library.
+samples/javascript/.runs/
+
+# Secrets and local settings
+# Credentials never belong in a repository. These patterns are a safety net, not a substitute for the rule.
+.env
+.env.*
+!.env.example
+secrets.json
+appsettings.*.local.json
+*.pfx
+*.pem
+*.key
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Design notes for this tutorial, which aren't published
+resources/
+.vscode/
