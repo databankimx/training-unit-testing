@@ -12,7 +12,7 @@ A test is a claim with a check attached. The name and the comment say what shoul
 
 ## Quizzes
 
-Three questions, one for each idea in the chapter. Pick an answer, and read the explanation whichever way it goes.
+Four questions, one for each idea in the chapter. Pick an answer, and read the explanation whichever way it goes.
 
 ```quiz
 A test is named "tax on INV-1002 is correct", and its only assertion is that the tax is not negative. Which part is too weak?
@@ -32,6 +32,16 @@ Why is a test with no assertion a problem?
 → Right. Nothing in it can fail, so its pass is not evidence.
 ○ It stops the other tests from running.
 → Each test runs on its own, so one without an assertion does not block the rest.
+```
+
+```quiz
+A claim says "the invoice is overdue on 2026-11-14." Which assertion checks it?
+○ Equal to, comparing the answer with a number.
+→ Equal to needs one number to compare with. This claim is a yes or a no.
+○ At least, checking the answer is 0 or more.
+→ That is a range check, and this claim does not give a range.
+◉ True, checking that the function returns true.
+→ Right. A yes-or-no claim calls for a true check.
 ```
 
 ```quiz

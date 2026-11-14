@@ -4,7 +4,7 @@
   "minutes": 10,
   "objective": "See a test whose name promises more than its assertion checks, and see it pass against a broken library.",
   "prerequisites": [
-    "The Same Check as a Test"
+    "What an Assertion Can Check"
   ],
   "languages": [
     "csharp",

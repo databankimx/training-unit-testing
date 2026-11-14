@@ -1,0 +1,9 @@
+{
+  "title": "What an Assertion Can Check",
+  "runtime": "none",
+  "minutes": 10,
+  "objective": "Choose the assertion that matches a claim's words: equal, not equal, at least or at most, true or false, or throws.",
+  "prerequisites": [
+    "The Four Parts of a Test"
+  ]
+}
