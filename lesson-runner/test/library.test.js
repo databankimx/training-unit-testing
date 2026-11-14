@@ -26,3 +26,15 @@ test('a lesson name that leaves the library folder is refused', () => {
   assert.equal(libraryFilePath('/course', 'python', 'Invoice'), null);
   assert.equal(libraryFilePath('/course', 'python', 'a/b'), null);
 });
+
+test('a comment goes on the first line that has the text, in the language comment style', () => {
+  const { markLine } = require('../core/library');
+  assert.equal(markLine('a\n  x + 5000\nb', 'python', '+ 5000', 'TODO'), 'a\n  x + 5000  # TODO\nb');
+  assert.equal(markLine('x + 5000;', 'javascript', '+ 5000', 'TODO'), 'x + 5000;  // TODO');
+  assert.equal(markLine('x + 5000\r\nb', 'csharp', '+ 5000', 'TODO'), 'x + 5000  // TODO\r\nb');
+});
+
+test('a line that is not there leaves the text alone', () => {
+  const { markLine } = require('../core/library');
+  assert.equal(markLine('nothing here', 'python', '+ 5000', 'TODO'), 'nothing here');
+});

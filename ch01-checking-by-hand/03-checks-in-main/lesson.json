@@ -1,0 +1,20 @@
+{
+  "title": "Checks in Main",
+  "runtime": "multi",
+  "minutes": 8,
+  "objective": "Write a check as a console program that prints PASS or FAIL, and see that a failing check still lets the program finish normally.",
+  "prerequisites": [
+    "Looking Is Not Checking"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "library": [
+    "invoice"
+  ],
+  "edit": "main",
+  "section": "homework",
+  "spoiler": true
+}

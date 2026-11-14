@@ -8,9 +8,8 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const { examplesInfo } = require('../core/markdown');
+const { createRenderer, examplesInfo } = require('../core/markdown');
 const { sourceFromExamples } = require('../core/sources');
-const { createRenderer } = require('../core/markdown');
 
 test('examples fences read their flags in any order, and other fences are not examples', () => {
   assert.deepEqual(examplesInfo('examples'), { source: false, readonly: false });
@@ -59,4 +58,10 @@ test('the Source pane takes the first block that is not readonly', () => {
     '~~~',
   ].join('\n');
   assert.deepEqual(sourceFromExamples(lesson), { python: 'print("editable")\n' });
+});
+
+test('read-only examples are colored like the other code blocks', () => {
+  const md = createRenderer();
+  const html = md.render('~~~examples readonly\n```csharp\nConsole.WriteLine(1);\n```\n```python\nprint("hi")\n```\n```javascript\nconsole.log(1);\n```\n~~~\n');
+  assert.match(html, /<pre class="example-readonly"><code class="language-python"><span class="hljs-/);
 });

@@ -15,5 +15,9 @@
   "library": [
     "invoice"
   ],
-  "edit": "library"
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "+ 5000",
+  "todo": "TODO (homework): remove the + 5000 that does the rounding"
 }

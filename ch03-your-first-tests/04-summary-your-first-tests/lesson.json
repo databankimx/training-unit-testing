@@ -1,0 +1,7 @@
+{
+  "title": "Summary: Your First Tests",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review arrange, act and assert, and why an expected value must come from the claim and not from the program.",
+  "prerequisites": ["The Copied Expected Value"]
+}

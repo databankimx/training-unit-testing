@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "test": "node --test test/catalog.test.js test/markdown.test.js test/state.test.js test/window-state.test.js test/run.test.js test/highlight.test.js test/check.test.js test/shadow.test.js test/gating.test.js test/sample.test.js test/sources.test.js test/data-files.test.js test/text-editor.test.js test/images.test.js test/parts.test.js test/tests.test.js test/readonly.test.js test/library.test.js test/edit.test.js test/editor.test.js test/prettify.test.js test/csharp.test.js"
+    "test": "node --test test/catalog.test.js test/markdown.test.js test/state.test.js test/window-state.test.js test/run.test.js test/highlight.test.js test/check.test.js test/shadow.test.js test/gating.test.js test/sample.test.js test/sources.test.js test/data-files.test.js test/text-editor.test.js test/images.test.js test/parts.test.js test/tests.test.js test/readonly.test.js test/library.test.js test/edit.test.js test/editor.test.js test/prettify.test.js test/csharp.test.js test/diff.test.js"
   },
   "dependencies": {
     "highlight.js": "^11.10.0",

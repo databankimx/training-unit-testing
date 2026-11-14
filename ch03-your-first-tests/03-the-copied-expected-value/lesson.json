@@ -1,0 +1,23 @@
+{
+  "title": "The Copied Expected Value",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "See a test whose expected value came from the program still pass against a broken library.",
+  "prerequisites": [
+    "Totals by Hand"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "+ 5000",
+  "todo": "TODO (homework): remove the + 5000 that does the rounding"
+}

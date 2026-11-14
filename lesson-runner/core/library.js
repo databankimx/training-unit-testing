@@ -39,4 +39,22 @@ function libraryExtension(language) {
   return LIBRARY_FOLDERS[language] ? LIBRARY_FOLDERS[language].extension : null;
 }
 
-module.exports = { libraryExtension, libraryFileName, libraryFilePath };
+// The comment marker for each language.
+const COMMENT_START = { csharp: '//', python: '#', javascript: '//' };
+
+// Adds a comment to the first line that contains the text, for the learner's copy of a library file. The text is returned
+// unchanged when no line has it, or when the language has no comment marker.
+function markLine(text, language, find, comment) {
+  const marker = COMMENT_START[language];
+  if (!marker || !find || !comment) return text;
+  const lines = String(text).split('\n');
+  const index = lines.findIndex((line) => line.includes(find));
+  if (index < 0) return text;
+  // A Windows line ending stays on the end of the line.
+  const ending = lines[index].endsWith('\r') ? '\r' : '';
+  const line = ending ? lines[index].slice(0, -1) : lines[index];
+  lines[index] = `${line}  ${marker} ${comment}${ending}`;
+  return lines.join('\n');
+}
+
+module.exports = { libraryExtension, libraryFileName, libraryFilePath, markLine };

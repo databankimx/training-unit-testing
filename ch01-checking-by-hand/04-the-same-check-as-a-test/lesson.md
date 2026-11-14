@@ -1,6 +1,6 @@
 # The Same Check as a Test
 
-The check you just did by eye had three parts. There was an input, INV-1002. There was an expected answer, 207, which you worked out by hand. And there was a comparison, which you did in your head. A test is that same check with each part written down, so the computer does the comparison every time the code runs.
+The check in the last step worked, but its result lived only in the output. The check you did by eye earlier in this chapter had three parts. There was an input, INV-1002. There was an expected answer, 207, which you worked out by hand. And there was a comparison, which you did in your head. A test is that same check with each part written down, so the computer does the comparison every time the code runs.
 
 Here is the rounding check for INV-1002 in each language. The C#, Python and JavaScript versions are the test files for this step. Open them from the file menu to read them. You will not edit them here. Run executes them against the library. The test name is the claim, written in plain English. The names are the same in all three languages, and so is the expected value.
 
@@ -79,8 +79,10 @@ Now break the rule. This is the only code you change in this step, and you chang
 
 The runner makes a copy of the library for this step, and it changes only that copy. The library in `samples/` is never touched, so you can break it as often as you like. Run the test again. It fails, and it reports that it expected 207 and got 206. The test has caught the broken rule, which the eye check could not. Put the `+ 5000` back, and the test passes again.
 
-> **Aside: why the expected value is 207 and not whatever the library says.** You worked 207 out by hand in the previous step, from the rule. If the test had copied the library's answer, it would pass on the broken copy too, and it would prove nothing. Chapter 11 is about tests that do exactly that, so this is the first and last time this warning is a footnote.
+> **Aside: why the expected value is 207 and not whatever the library says.** You worked 207 out by hand earlier in this chapter, from the rule. If the test had copied the library's answer, it would pass on the broken copy too, and it would prove nothing. Chapter 11 is about tests that do exactly that, so this is the first and last time this warning is a footnote.
 
 > **Common mistake.** Running a new test once against the working code, seeing it pass, and stopping there. A test that has never failed has not yet shown that it can. The break is what makes the test worth its place.
+
+This is homework. Make the change yourself, in the copy, and Run to see what happens. Press Show solution (spoiler) only after you've tried it. The solution is the whole library file with the rounding term removed, so use it to check your work.
 
 ---

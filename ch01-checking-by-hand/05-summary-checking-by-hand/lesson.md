@@ -4,6 +4,7 @@ Running a program and reading its output is a useful first check, and most peopl
 
 ## What you learned
 
+- A check written in main prints PASS or FAIL. When it fails, the program still finishes with exit code 0, so the failure is seen only by someone who reads the output.
 - A check by eye can pass for the wrong reason. On INV-1001, the real rounding and the broken truncation both give 206, so the check could not tell them apart.
 - The second invoice, INV-1002, has a fraction of a cent above half, and that is where the two rules differ. The inputs you choose decide what your check can see.
 - A manual check falls short in three ways. It is not repeated exactly, it is skipped when nobody remembers it, and it keeps no expected answer.

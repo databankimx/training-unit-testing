@@ -33,6 +33,7 @@
     solutions: document.getElementById('solutions'),
     solutionCode: document.getElementById('solution-code'),
     solutionReasoning: document.getElementById('solution-reasoning'),
+    solutionChanges: document.getElementById('solution-changes'),
     solutionsToggle: document.getElementById('solutions-toggle'),
     resetSource: document.getElementById('reset-source'),
     modified: document.getElementById('modified'),
@@ -257,6 +258,7 @@
   // Shows the read-only solution for the active language, colored the same way.
   async function showSolution(code) {
     const text = code.active && code.solutions ? (code.solutions[code.active] ?? '') : '';
+    showSolutionChanges(code.solutionChanges?.[code.active] ?? []);
     ui.solutionGutter.textContent = lineNumbers(text);
     const seq = ++highlightSeq;
     try {
@@ -315,10 +317,27 @@
   }
 
   // Moves between main.* and prompt.md. Viewing the prompt closes the solutions, which belong to the main file.
+  // Lists what the solution changes from the starter, above the solution. An empty list hides the note.
+  function showSolutionChanges(changes) {
+    ui.solutionChanges.replaceChildren();
+    ui.solutionChanges.hidden = changes.length === 0;
+    if (changes.length === 0) return;
+    const heading = document.createElement('div');
+    heading.textContent = `The solution changes ${changes.length === 1 ? 'one line' : `${changes.length} lines`} from the starter:`;
+    ui.solutionChanges.append(heading);
+    for (const change of changes) {
+      const row = document.createElement('div');
+      row.textContent = `Line ${change.line}: ${change.before || '(new line)'}  →  ${change.after || '(removed)'}`;
+      ui.solutionChanges.append(row);
+    }
+  }
+
+  // Choosing a file closes the solutions, so the choice shows. Choosing the file that is already open closes them too.
   function selectFile(file) {
     const code = state.code;
-    if (code === null || code.file === file) return;
+    if (code === null || (code.file === file && !code.solutionsOpen)) return;
     saveEditorText();
+    code.solutionsOpen = false;
     code.file = file;
     renderFileSelect();
     renderSourceTabs();
@@ -521,6 +540,7 @@
       try {
         const result = await window.runner.revealSolutions(code.id);
         code.solutions = result.code;
+        code.solutionChanges = result.changes;
         code.prompt = result.prompt;
         code.solutionsRevealed = true;
       } catch (error) {

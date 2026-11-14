@@ -1,0 +1,19 @@
+{
+  "title": "The Four Parts of a Test",
+  "runtime": "multi",
+  "minutes": 8,
+  "objective": "Find the claim, the fixture, the action, and the assertion in a test, and see that it passes.",
+  "prerequisites": [
+    "The Same Check as a Test"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

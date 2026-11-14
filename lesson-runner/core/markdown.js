@@ -161,7 +161,7 @@ function renderExamples(md, source, options = {}) {
     // A sample is editable and runnable in place. The renderer adds the editor over this block. Code with a ghost marker
     // is a read-only suggestion example, so it keeps the faded-text rendering.
     const body = options.readonly
-      ? `<pre class="example-readonly"><code class="language-${language}">${escape(code.replace(/\n$/, ''))}</code></pre>\n`
+      ? `<pre class="example-readonly"><code class="language-${language}">${highlightCode(code.replace(/\n$/, ''), language)}</code></pre>\n`
       : code.includes('{{ghost}}')
       ? renderShadow(md, code, language)
       : `<div class="sample" data-sample data-language="${language}">\n` +

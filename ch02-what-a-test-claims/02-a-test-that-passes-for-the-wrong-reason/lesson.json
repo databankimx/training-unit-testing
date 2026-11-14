@@ -1,0 +1,23 @@
+{
+  "title": "A Test That Passes for the Wrong Reason",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "See a test whose name promises more than its assertion checks, and see it pass against a broken library.",
+  "prerequisites": [
+    "The Same Check as a Test"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "+ 5000",
+  "todo": "TODO (homework): remove the + 5000 that does the rounding"
+}

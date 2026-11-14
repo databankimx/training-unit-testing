@@ -1,0 +1,21 @@
+{
+  "title": "A Test With No Assertion",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Find the test that passes because nothing in it can fail, then add the assertion that checks its claim.",
+  "prerequisites": [
+    "The Same Check as a Test"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

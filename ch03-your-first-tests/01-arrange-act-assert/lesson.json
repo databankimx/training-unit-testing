@@ -1,0 +1,19 @@
+{
+  "title": "Arrange, Act, Assert",
+  "runtime": "multi",
+  "minutes": 8,
+  "objective": "Name the arrange, act and assert sections of a test, and see a test that checks the subtotal pass.",
+  "prerequisites": [
+    "The Four Parts of a Test"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Totals by Hand",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Work out the subtotal, tax and total by hand, and write each one into its test.",
+  "prerequisites": [
+    "Arrange, Act, Assert"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

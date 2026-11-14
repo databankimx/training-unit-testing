@@ -4,7 +4,9 @@
       "title": "Part I - Foundations",
       "chapters": [
         "ch00-introduction",
-        "ch01-checking-by-hand"
+        "ch01-checking-by-hand",
+        "ch02-what-a-test-claims",
+        "ch03-your-first-tests"
       ]
     }
   ]

@@ -32,7 +32,8 @@ const { FILE_NAMES, codeTargetPath, commandFor, environmentFor, prepareRunFolder
 const { syntaxCommand, parseDiagnostics, outputMatches } = require('./core/check');
 const { testCommandFor, parseTestResults, summarizeTests, TEST_FILE_NAMES, prettifyXml } = require('./core/tests');
 const { FILE_TYPE_KEY, USER_CHOICE_KEY, commandForFile, parseRegistryValue } = require('./core/editor');
-const { libraryFileName, libraryFilePath } = require('./core/library');
+const { libraryFileName, libraryFilePath, markLine } = require('./core/library');
+const { changedLines } = require('./core/diff');
 const { isGatedStep } = require('./core/gating');
 const { sampleFileNames, dataFilesMentioned } = require('./core/data-files');
 const { isTextFile, isPlainText, registryValue, expandEnvironment, commandFor: commandFromLine } = require('./core/text-editor');
@@ -462,8 +463,11 @@ function readLibraryFiles(item, languages) {
 function libraryStarters(item, languages) {
   const files = readLibraryFiles(item, languages) ?? {};
   const name = item.library[0];
+  // The learner's copy can carry a comment on the line to change. The library in samples/ is never changed.
   return Object.fromEntries(
-    Object.entries(files).filter(([, byName]) => name in byName).map(([language, byName]) => [language, byName[name]]),
+    Object.entries(files)
+      .filter(([, byName]) => name in byName)
+      .map(([language, byName]) => [language, markLine(byName[name], language, item.mark, item.todo)]),
   );
 }
 
@@ -576,7 +580,12 @@ function registerHandlers() {
     // The sample prompt and its reasoning (prompt.md) are part of the solution. They are rendered, and read-only in the page.
     const promptFile = path.join(item.dir, 'prompt.md');
     const prompt = fs.existsSync(promptFile) ? md.render(fs.readFileSync(promptFile, 'utf8'), lessonRenderEnv(item)) : null;
-    return { code: solutions, prompt };
+    // What each solution changes from its starter, so the page can list the changes above the solution.
+    const starters = startingCode(item);
+    const changes = Object.fromEntries(
+      Object.entries(solutions).map(([language, text]) => [language, changedLines(starters[language] ?? '', text)]),
+    );
+    return { code: solutions, prompt, changes };
   });
   ipcMain.handle('toolchains:get', () => toolchains());
   ipcMain.handle('code:highlight', (_event, code, language) => highlightCode(String(code), String(language)));

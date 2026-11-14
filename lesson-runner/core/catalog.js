@@ -63,6 +63,9 @@ function loadCatalog(courseRoot) {
         checks: meta.checks === 'tests' ? 'tests' : null,
         edit: ['main', 'test', 'library', 'none'].includes(meta.edit) ? meta.edit : 'main',
         library: Array.isArray(meta.library) ? meta.library.filter((name) => typeof name === 'string') : [],
+        // For a library step: the text to find on the line that is changed, and the comment to put on it in the learner's copy.
+        mark: typeof meta.mark === 'string' && meta.mark.length > 0 ? meta.mark : null,
+        todo: typeof meta.todo === 'string' && meta.todo.length > 0 ? meta.todo : null,
         markdownPath: path.join(stepDir, 'lesson.md'),
       };
     });

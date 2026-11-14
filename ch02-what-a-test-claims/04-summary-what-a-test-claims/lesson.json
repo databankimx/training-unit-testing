@@ -1,0 +1,9 @@
+{
+  "title": "Summary: What a Test Claims",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review the four parts of a test, and why a test with no assertion proves nothing.",
+  "prerequisites": [
+    "A Test With No Assertion"
+  ]
+}
