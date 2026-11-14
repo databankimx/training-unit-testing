@@ -56,3 +56,8 @@ def balance_due_cents(invoice: Invoice) -> int:
 def is_overdue(invoice: Invoice, today: str) -> bool:
     """True when money is still owed and today is after the due date."""
     return balance_due_cents(invoice) > 0 and parse_date(today) > parse_date(invoice.due_date)
+
+
+def late_fee(invoice: Invoice, today: str) -> int:
+    """The late fee, in cents. This is a stub, written test first in chapter 5."""
+    return 0

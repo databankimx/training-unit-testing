@@ -1,0 +1,23 @@
+{
+  "title": "Green, Then Refactor",
+  "runtime": "multi",
+  "minutes": 14,
+  "objective": "Write the smallest code that makes the late fee tests pass, then refactor it with the tests still passing.",
+  "prerequisites": [
+    "The Next Test"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "return 0",
+  "todo": "TODO (homework): write the late fee, then tidy it while the tests stay green"
+}

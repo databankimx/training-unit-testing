@@ -1,5 +1,9 @@
 # A Test With No Assertion
 
+Dana inherited a test for empty invoices. It has been green in the build for a year, and the team counts it as coverage. Look closer. It builds an invoice, calls the tax function, and then stops. If the tax on an empty invoice went wrong tomorrow, this test would still pass, and the build would stay green.
+
+Your job is to make the test able to notice.
+
 The test file for this step has a claim, a fixture and an action. It has no assertion. The claim is that an invoice with no lines owes no tax, which is true of the library.
 
 Run it. It passes. It always passes, because nothing in it can fail. A test with no assertion never checks the claim, and it looks just as green in the results as a test that does. Notice how often a green result has been the whole of your evidence.

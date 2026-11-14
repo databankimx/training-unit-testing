@@ -6,7 +6,9 @@
         "ch00-introduction",
         "ch01-checking-by-hand",
         "ch02-what-a-test-claims",
-        "ch03-your-first-tests"
+        "ch03-your-first-tests",
+        "ch04-parameterized-tests",
+        "ch05-test-driven-development"
       ]
     }
   ]

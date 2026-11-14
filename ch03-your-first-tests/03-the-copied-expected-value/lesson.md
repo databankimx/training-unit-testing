@@ -1,6 +1,46 @@
 # The Copied Expected Value
 
+A colleague of Dana's, in a hurry, wrote the tax test by asking the program for its answer and pasting that answer into the test. The test has all three sections and a good name, and it passes. That is what makes it dangerous. A passing test that copied the program will keep passing when the program is wrong.
+
+The steps below break the rounding in a copy, so you can see what the test does when the library is wrong.
+
 This test looks finished. It has all three sections, and its name says the tax on INV-1002 is correct. Look at the act section. It asks the library for the tax and keeps the answer as the expected value. The assert then asks the library again and compares the two answers.
+
+## Read the two lines that matter
+
+Two lines decide what this test checks. The first is the act. It asks the library for the tax and stores the answer in `expected`:
+
+~~~examples readonly
+```csharp
+var expected = Invoices.TaxCents(invoice);
+```
+```python
+expected = tax_cents(invoice)
+```
+```javascript
+const expected = taxCents(invoice);
+```
+~~~
+
+The second is the assert. It asks the library for the tax again and compares the two answers:
+
+~~~examples readonly
+```csharp
+Assert.That(Invoices.TaxCents(invoice), Is.EqualTo(expected));
+```
+```python
+assert tax_cents(invoice) == expected
+```
+```javascript
+assert.equal(taxCents(invoice), expected);
+```
+~~~
+
+Read it as "the tax equals the tax." The claim in the name says the tax is correct, but nothing in the test says what the correct tax is. Both sides come from the library, so whatever the library says, the test agrees.
+
+## The whole test
+
+Here is the full test, as it stands:
 
 ~~~examples readonly
 ```csharp

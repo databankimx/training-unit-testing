@@ -20,4 +20,10 @@ public static class Invoices
     // True when money is still owed and today is after the due date.
     public static bool IsOverdue(Invoice invoice, string today) =>
         BalanceDueCents(invoice) > 0 && Dates.Parse(today) > Dates.Parse(invoice.DueDate);
+
+    // The late fee, in cents. This is a stub, written test first in chapter 5.
+    public static long LateFee(Invoice invoice, string today)
+    {
+        return 0;
+    }
 }

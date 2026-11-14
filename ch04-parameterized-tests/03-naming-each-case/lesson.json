@@ -1,0 +1,23 @@
+{
+  "title": "Naming Each Case",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Predict which named cases fail when the half-cent rounding is removed, then check the prediction in a copy of the library.",
+  "prerequisites": [
+    "One Table of Cases"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "+ 5000",
+  "todo": "TODO (homework): remove the + 5000 that does the rounding"
+}

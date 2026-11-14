@@ -1,0 +1,19 @@
+{
+  "title": "Three Tests That Repeat Themselves",
+  "runtime": "multi",
+  "minutes": 8,
+  "objective": "See three tax rounding tests that differ only in their numbers, and see why that repetition is a problem.",
+  "prerequisites": [
+    "Summary: Your First Tests"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

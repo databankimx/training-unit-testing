@@ -30,3 +30,8 @@ export function balanceDueCents(invoice) {
 export function isOverdue(invoice, today) {
   return balanceDueCents(invoice) > 0 && parseDate(today) > parseDate(invoice.dueDate);
 }
+
+// The late fee, in cents. This is a stub, written test first in chapter 5.
+export function lateFee(invoice, today) {
+  return 0;
+}

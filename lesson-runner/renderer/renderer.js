@@ -323,12 +323,20 @@
     ui.solutionChanges.hidden = changes.length === 0;
     if (changes.length === 0) return;
     const heading = document.createElement('div');
-    heading.textContent = `The solution changes ${changes.length === 1 ? 'one line' : `${changes.length} lines`} from the starter:`;
+    heading.textContent = `The solution changes ${changes.length === 1 ? 'one place' : `${changes.length} places`} from the starter:`;
     ui.solutionChanges.append(heading);
     for (const change of changes) {
-      const row = document.createElement('div');
-      row.textContent = `Line ${change.line}: ${change.before || '(new line)'}  →  ${change.after || '(removed)'}`;
-      ui.solutionChanges.append(row);
+      const label = document.createElement('div');
+      label.textContent = `Line ${change.line}`;
+      ui.solutionChanges.append(label);
+      // A minus sign marks a starter line the solution replaces, and a plus sign marks a line the solution adds.
+      const lines = [
+        ...(change.before ? change.before.split('\n').map((line) => `- ${line}`) : []),
+        ...(change.after ? change.after.split('\n').map((line) => `+ ${line}`) : []),
+      ];
+      const block = document.createElement('pre');
+      block.textContent = lines.join('\n');
+      ui.solutionChanges.append(block);
     }
   }
 

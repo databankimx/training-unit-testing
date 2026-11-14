@@ -37,7 +37,7 @@ The tax on 2500 cents at 825 basis points is 206.25 cents. What does the library
 ```quiz
 Where does the late fee come from in this tutorial?
 ○ It is already in the library, and the tests check it.
-→ The library leaves the late fee out on purpose, so the tests can be written first.
+→ The library has only a stub for the late fee, which always returns 0, so the tests can be written first.
 ◉ The learner writes the late fee test first, then the code, in the test-driven development chapter.
 → Right. Writing the test before the code is how the tutorial shows that a test can fail.
 ○ It comes from a separate library that the tutorial installs.

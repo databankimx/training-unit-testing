@@ -1,0 +1,21 @@
+{
+  "title": "The Next Test",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Write a test for the 2 percent fee on a large balance, work out its expected value by hand, and see it fail before any code is written.",
+  "prerequisites": [
+    "The First Red"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

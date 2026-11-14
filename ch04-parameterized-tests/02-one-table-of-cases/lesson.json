@@ -1,0 +1,21 @@
+{
+  "title": "One Table of Cases",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Read a table of cases, see how one test body runs once for each row, and work out the three expected values for the rounding cases by hand.",
+  "prerequisites": [
+    "Three Tests That Repeat Themselves"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

@@ -58,6 +58,7 @@ function testCommandFor(language, environment) {
 // Reverses the entities that XML uses in attribute values. &amp; is last, so an encoded ampersand is not decoded twice.
 function decodeXml(text) {
   return text
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, code) => String.fromCodePoint(parseInt(code, 16)))
     .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
     .replace(/&quot;/g, '"')
     .replace(/&apos;/g, "'")

@@ -1,5 +1,9 @@
 # A Test That Passes for the Wrong Reason
 
+Dana has a test for the tax on INV-1002. It is green, it is in the suite, and a reviewer approved it. Before she relies on it, she wants to know whether it would notice a rounding bug. So she breaks the rounding in a copy and runs the test.
+
+You are going to do the same. The question is not whether the test passes today. It is whether the test would fail tomorrow if the rounding broke.
+
 The test below claims more than it checks. Its name says the tax on INV-1002 is correct, and the comment says that correct means 207 cents. Its assertion checks only that the tax is not negative.
 
 ~~~examples readonly

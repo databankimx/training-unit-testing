@@ -1,5 +1,7 @@
 # The Same Check as a Test
 
+Dana's console check worked, but it only made noise when someone read the output. Her team wants a result the build can act on, so she turns the check into a test and lets the framework keep the result. Then she does what this chapter keeps coming back to: she breaks the rounding on purpose, to see whether the test notices.
+
 The check in the last step worked, but its result lived only in the output. The check you did by eye earlier in this chapter had three parts. There was an input, INV-1002. There was an expected answer, 207, which you worked out by hand. And there was a comparison, which you did in your head. A test is that same check with each part written down, so the computer does the comparison every time the code runs.
 
 Here is the rounding check for INV-1002 in each language. The C#, Python and JavaScript versions are the test files for this step. Open them from the file menu to read them. You will not edit them here. Run executes them against the library. The test name is the claim, written in plain English. The names are the same in all three languages, and so is the expected value.

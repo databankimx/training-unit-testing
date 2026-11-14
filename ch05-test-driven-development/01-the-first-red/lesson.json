@@ -1,0 +1,19 @@
+{
+  "title": "The First Red",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Read a test written before its code, and see it fail against the stub for the right reason.",
+  "prerequisites": [
+    "Summary: Parameterized Tests"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

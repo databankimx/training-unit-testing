@@ -1,5 +1,9 @@
 # Checks in Main
 
+Dana has a check like this in a console program, and her build script runs it before every release. One day the check printed FAIL, but the build still went green, because the program finished without an error. Nobody read the output, and the wrong tax went out with the release.
+
+That is the gap this step shows. Before you trust a check, see it fail. The steps below make this one fail on purpose.
+
 Before anyone reaches for a test framework, most of us write a check like this. We open a console program, call the library, compare the answer with the number we worked out by hand, and print the result. It takes a minute, and for a while it is good enough.
 
 The program in the editor does that for INV-1002. It has the expected answer, 207, and a line that says whether the library agrees. Run it.

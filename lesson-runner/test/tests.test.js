@@ -90,6 +90,8 @@ test('a language with no test command is refused', () => {
 
 test('XML entities in attribute values are decoded, the ampersand last', () => {
   assert.equal(decodeXml('a &amp;lt; b &#10; &quot;c&quot; &apos;d&apos; &gt;'), 'a &lt; b \n "c" \'d\' >');
+  // TRX messages from NUnit write carriage returns as hex references, such as &#xD;.
+  assert.equal(decodeXml('expected 3&#xD;, got 2&#xD;'), 'expected 3\r, got 2\r');
 });
 
 test('a passing JUnit testcase is a pass, even when it is written as a self-closing element', () => {

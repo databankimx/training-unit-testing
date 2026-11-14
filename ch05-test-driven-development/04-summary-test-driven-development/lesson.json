@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Test-Driven Development",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review red, green and refactor, and why the first red is part of the test.",
+  "prerequisites": [
+    "Green, Then Refactor"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Parameterized Tests",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review how a table of cases keeps the test body in one place, and how a named row shows which case broke.",
+  "prerequisites": [
+    "Naming Each Case"
+  ]
+}
