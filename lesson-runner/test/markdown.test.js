@@ -15,6 +15,17 @@ const { loadCatalog } = require('../core/catalog');
 
 const courseRoot = path.resolve(__dirname, '..', '..');
 
+test('a mermaid block renders as diagram source, escaped for the page', () => {
+  const html = createRenderer().render('```mermaid\nflowchart TD\n    A["x < y"] --> B\n```\n');
+  assert.match(html, /<div class="diagram" data-diagram><pre class="mermaid"/);
+  assert.ok(html.includes('x &lt; y'), 'the source is escaped');
+  assert.ok(!html.includes('x < y'), 'no raw angle bracket reaches the page');
+});
+
+test('the Mermaid bundle is shipped with the runner', () => {
+  assert.ok(fs.existsSync(path.join(__dirname, '..', 'renderer', 'vendor', 'mermaid.min.js')));
+});
+
 test('parseQuiz reads the question, the choices, and the feedback', () => {
   const quiz = parseQuiz(
     [

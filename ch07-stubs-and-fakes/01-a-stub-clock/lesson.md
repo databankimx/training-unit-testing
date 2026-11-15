@@ -2,6 +2,15 @@
 
 The reminder service asks the clock for today's date, and then it compares that date with each invoice's due date. The real clock gives a different answer every day, so a test that uses it can pass today and fail tomorrow. The fix is a stub clock. It always says the same date, which the test chooses.
 
+The stub always answers with one fixed date, so each test controls which side of the due date the service sees.
+
+```mermaid
+flowchart TD
+    A["Reminder service asks the stub for today"] --> B{"Which fixed date does the stub return?"}
+    B -->|"1 November, the due date"| C["Not overdue: expects 0 reminders"]
+    B -->|"2 November, the day after"| D["Overdue: expects 1 reminder of 2712 cents"]
+```
+
 Here is the whole stub in each language. It stores one date, and its only method returns that date:
 
 ~~~examples readonly

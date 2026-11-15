@@ -10,6 +10,26 @@ Two parts of that rule need a number worked out. Two percent of a balance is the
 
 The library in the editor has `late_fee` as a stub. It always returns 0. So it is wrong for any overdue invoice, and right only when nothing is owed or the invoice is not yet due.
 
+The rule is worked out before any code exists. The flow shows the decisions the late fee takes, which the tests then check one at a time.
+
+```mermaid
+flowchart TD
+    A{"Is the invoice overdue?"} -->|No| B["Late fee is 0"]
+    A -->|Yes| C{"Is any money still owed?"}
+    C -->|No| B
+    C -->|Yes| D["Fee is the larger of 500 cents and 2 percent of the balance"]
+```
+
+Against the stub, which always returns 0, the two tests behave differently:
+
+```mermaid
+flowchart TD
+    A["Stub late_fee always returns 0"] --> B["Test: no late fee before the due date, expects 0"]
+    A --> C["Test: minimum fee on a small balance, expects 500"]
+    B --> D["Gets 0: green"]
+    C --> E["Gets 0: red, expected 500"]
+```
+
 Here are the first two tests. They are written before the code, which is the point. The file is read-only in this step. Open it from the file menu to read the full text.
 
 The first test checks the case where nothing is owed yet. Its arrange section builds INV-1002, and its act asks for the fee on 31 October, the day before the due date:

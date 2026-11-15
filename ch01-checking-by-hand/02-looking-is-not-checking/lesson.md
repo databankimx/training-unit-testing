@@ -110,6 +110,19 @@ That is the first shortfall of checking by hand, and it has three parts.
 2. **It is skipped.** Nothing runs the check unless someone remembers to. A change made on a Friday afternoon can ship on Monday, and nobody reruns the look, because the look is a habit and habits go missing.
 3. **It keeps no expected answer.** The 206 you checked lives in your head, or in a terminal window that someone will close. When the rate code changes next year, there is nothing to compare against except your memory of what the output said.
 
+The flow follows the broken rule from the claim to what a reader sees. Nothing on the path records the claim, so nothing compares the output with it later.
+
+```mermaid
+flowchart TD
+    A["Claim: tax on invoice 1002 is 207 cents"] --> B["Program prints 206"]
+    B --> C{"Does the reader compare with 207?"}
+    C -->|"Yes, carefully, this time"| D["The difference is noticed once"]
+    C -->|"Skimmed, or not run at all"| E["Nothing is noticed"]
+    D --> F["The check lives only in one person's head"]
+    E --> F
+    F --> G["Next year's change has nothing to be compared with"]
+```
+
 > **Aside: where a check by eye earns its keep.** When you are exploring something new and do not yet know what the answer should be, reading the output is the right thing to do. Looking at a result is how you learn what to expect. The trouble starts when the same look is used as the check for a rule that someone has already decided.
 
 > **Common mistake.** Checking one input, seeing a sensible number, and calling the rule proven. The number you checked is the only one you checked. The second invoice was on screen the whole time, and it was the one that showed the bug.

@@ -4,6 +4,17 @@ Dana's console check worked, but it only made noise when someone read the output
 
 The check in the last step worked, but its result lived only in the output. The check you did by eye earlier in this chapter had three parts. There was an input, INV-1002. There was an expected answer, 207, which you worked out by hand. And there was a comparison, which you did in your head. A test is that same check with each part written down, so the computer does the comparison every time the code runs.
 
+The test is the same check, written down. The flow shows each step the computer now runs, and the two ways it can end.
+
+```mermaid
+flowchart TD
+    A["Test: tax rounds half up to 207 cents on 2505 cents"] --> B["Build invoice 1002, with a 2505-cent subtotal"]
+    B --> C["Call the tax function"]
+    C --> D{"Result equals 207?"}
+    D -->|Yes| E["Green: the rule matches the claim"]
+    D -->|"No, 206 when rounding is broken"| F["Red: the test names the claim that failed"]
+```
+
 Here is the rounding check for INV-1002 in each language. The C#, Python and JavaScript versions are the test files for this step. Open them from the file menu to read them. You will not edit them here. Run executes them against the library. The test name is the claim, written in plain English. The names are the same in all three languages, and so is the expected value.
 
 This is where the three test frameworks appear for the first time. C# uses NUnit, where a test is a method marked `[Test]`, and `Assert.That` makes the comparison. Python uses pytest, where a test is a function whose name starts with `test_`, and a plain `assert` makes the comparison. JavaScript uses `node:test`, which is built into Node, so it needs no install. There, `test` takes a name and a function, and `assert.equal` makes the comparison. The appendix sets all three side by side.

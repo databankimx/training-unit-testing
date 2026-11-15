@@ -2,6 +2,16 @@
 
 The sender in this test is a mock. It does nothing with the reminders. It only records each call, so the test can ask what was called, and with what.
 
+The sender is a mock, so the test can read every call the service made to it. The flow shows the two calls it should record.
+
+```mermaid
+flowchart LR
+    A["Service sends a reminder for INV-1002, 2712 cents"] --> C["Mock sender records the call"]
+    B["Service sends a reminder for INV-1003, 2000 cents"] --> C
+    C --> D["Test reads the recorded calls"]
+    D --> E{"Two calls, with the right address and amount?"}
+```
+
 Here is how a mock is made in each language:
 
 ~~~examples readonly

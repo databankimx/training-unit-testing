@@ -13,6 +13,19 @@ Here is what you should see:
 
 That is the lesson in one run. A test that can fail against a broken rule is worth having. A test that cannot is only a green light.
 
+The diagram follows the experiment from the copy of the library to the two results. Compare each result with the claim it tests.
+
+```mermaid
+flowchart LR
+    A["Library in samples: never changed"] --> B["Copy made for this run"]
+    B --> C["Remove + 5000 from the copy"]
+    C --> D["Run the test file"]
+    D --> E["Four weak tests: green"]
+    D --> F["Rounding test: red, 206 instead of 207"]
+    E --> G["The weak tests cannot see the rule"]
+    F --> H["The rounding test can see the rule"]
+```
+
 > **Common mistake.** Restoring the `+ 5000` after the failure, and then calling the test fixed. The failure is the evidence. Keep the broken copy long enough to read the failure, then put the rule back.
 
 This is homework. Make the change yourself, and Run. Press Show solution (spoiler) only after you have tried it. The solution is the unbroken library. Run it, and every test should pass.

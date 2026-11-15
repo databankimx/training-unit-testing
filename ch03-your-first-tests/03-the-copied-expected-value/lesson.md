@@ -38,6 +38,28 @@ assert.equal(taxCents(invoice), expected);
 
 Read it as "the tax equals the tax." The claim in the name says the tax is correct, but nothing in the test says what the correct tax is. Both sides come from the library, so whatever the library says, the test agrees.
 
+The copied test and the worked test differ in one place: where the right answer comes from. As written, the test follows the library's answer:
+
+```mermaid
+flowchart TD
+    A["Claim: tax on invoice 1002 is correct"] --> B["Act: expected = the library's tax"]
+    B --> C["Assert: the library's tax equals expected"]
+    C --> D["Both sides come from the library"]
+    D --> E["Green whatever the library returns"]
+```
+
+The test it should be takes the answer from the hand calculation, so the library's answer can be checked against it:
+
+```mermaid
+flowchart TD
+    A["Claim: tax on invoice 1002 is 207 cents"] --> B["Hand calculation from the rule: 207"]
+    B --> C["Expected value written into the test as 207"]
+    C --> D["Assert: the library's tax equals 207"]
+    D --> E{"Result"}
+    E -->|"Library returns 207"| F["Green: the claim holds"]
+    E -->|"Library returns 206"| G["Red: the claim fails"]
+```
+
 ## The whole test
 
 Here is the full test, as it stands:

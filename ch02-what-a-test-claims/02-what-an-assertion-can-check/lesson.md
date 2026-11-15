@@ -14,6 +14,18 @@ Here is the quick version. Find the words of the claim in the left column.
 
 Each kind has a short example below. The examples use the INV-1002 invoice from the last step, so you can read them as if they were in a test. They are read-only, and they show the line and nothing else.
 
+Start from the claim, not the assertion. The words of the claim pick the assertion, as the decision flow shows.
+
+```mermaid
+flowchart TD
+    A{"What does the claim say?"} -->|"A value is exactly this"| B["Equal to"]
+    A -->|"A value is not this"| C["Not equal to"]
+    A -->|"A value is within a range"| D["At least, or at most"]
+    A -->|"A condition is yes or no"| E["True or false"]
+    A -->|"Bad input is refused"| F["Throws an error"]
+    A -->|"A value must be missing"| G["Null"]
+```
+
 ## Equal to
 
 Use equal when the claim names one exact answer. The comparison passes only if the result is exactly that value.

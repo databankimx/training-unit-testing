@@ -2,6 +2,19 @@
 
 A stub returns the same answer whatever it is asked. A fake does real work, just in a simpler way. The fake repository here keeps invoices in a list in memory, and its `find_open` works the way the real database should: it returns only the invoices that still owe money.
 
+The fake repository holds real invoices, and its find_open rule removes the paid one. The flow shows what reaches the service.
+
+```mermaid
+flowchart TD
+    A["Bob, owed 2712, is added"] --> C["Fake repository holds both invoices"]
+    B["Ann, owed 2000, is added"] --> C
+    D["Cy, paid in full, is added"] --> C
+    C --> E["find_open keeps only invoices with a balance above zero"]
+    E --> F["Service receives Bob and Ann"]
+    E -.-> G["Cy is dropped: nothing is owed"]
+    F --> H["Two reminders sent: green"]
+```
+
 ~~~examples readonly
 ```csharp
 private sealed class InMemoryRepository : IInvoiceRepository

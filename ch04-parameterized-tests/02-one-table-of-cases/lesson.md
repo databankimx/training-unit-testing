@@ -47,6 +47,20 @@ assert.equal(result, c.expected);
 
 The body does not change from row to row. Only the subtotal, the rate and the expected number change, and those come from the table.
 
+One table holds the cases, and one body runs each row. The flow shows every row reaching the same body.
+
+```mermaid
+flowchart TD
+    A["Table of cases: one row per case"] --> B["Row: 1000 cents at 25 basis points, expect 3"]
+    A --> C["Row: 1000 cents at 24 basis points, expect 2"]
+    A --> D["Row: 1000 cents at 26 basis points, expect 3"]
+    A --> E["Row: 2505 cents at 825 basis points, expect 207"]
+    B --> F["Same body: build, call tax, compare with expected"]
+    C --> F
+    D --> F
+    E --> F
+```
+
 ## Your job
 
 The file in the editor has four rows. The last row, `invoice-1002`, is already done, and it matches the 207 cents from chapter 3. The other three are the boundary cases from the last step, and each has a placeholder where the expected tax goes: `None` in Python, `null` in JavaScript, and `-1` in C#. A tax can never be `-1`, so these three fail until you replace the placeholders.

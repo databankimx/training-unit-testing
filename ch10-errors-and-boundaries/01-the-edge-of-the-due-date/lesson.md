@@ -10,6 +10,16 @@ The second test uses the day after: 2 November. The assert says yes. Together, t
 
 The third test checks a paid invoice a long time after its due date. The claim is that money must still be owed, so an invoice with nothing left to pay is never overdue. The arrange section pays the full total, 2712 cents, which you can check from the earlier chapters.
 
+The three tests cover the three edges of the claim: the due date, the day after it, and a paid invoice. The flow shows each path and the answer it expects.
+
+```mermaid
+flowchart LR
+    A["Invoice due 1 November, still owed"] --> B{"Which date is today?"}
+    B -->|"1 November: the due date"| C["Not overdue: expects false"]
+    B -->|"2 November: the day after"| D["Overdue: expects true"]
+    E["Invoice due 1 November, fully paid, checked 14 November"] --> F["Balance is zero: expects false"]
+```
+
 Here is the first test in each language:
 
 ~~~examples readonly

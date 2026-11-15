@@ -17,6 +17,16 @@ A claim is one sentence about what should be true. For this test, the claim is t
 
 A good claim says one thing and gives one answer. If the claim is about the subtotal, a failure tells you the subtotal is wrong, and nothing else.
 
+The four parts of a test form one path. The claim decides the fixture and the assertion, and the action connects them.
+
+```mermaid
+flowchart LR
+    A["Claim: the subtotal adds the line totals"] --> B["Fixture: invoice 1002 with one line of 3 x 835"]
+    B --> C["Action: call the subtotal function"]
+    C --> D["Assertion: the result equals 2505"]
+    D --> E{"Pass or fail"}
+```
+
 ## The fixture
 
 The fixture is the data the test starts from. Here is the invoice the test builds:

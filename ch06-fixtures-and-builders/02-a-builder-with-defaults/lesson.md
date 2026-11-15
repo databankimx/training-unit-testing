@@ -31,6 +31,18 @@ The payments default is a new, empty value on every call. In Python it is an emp
 
 Now look at the two tests. The first asks for one override, the payments list with 1000 cents in it. The second asks for no overrides at all, so it gets the defaults, which means no payments. Neither test mentions the other.
 
+A builder gives each test its own invoice, so the order of the tests cannot matter. The flow shows the two tests side by side.
+
+```mermaid
+flowchart TD
+    A["make_invoice builds a fresh invoice with defaults"] --> B["Test 1 gets its own invoice, with a 1000 payment"]
+    A --> C["Test 2 gets its own invoice, with no payments"]
+    B --> D["Test 1 expects 1712: green"]
+    C --> E["Test 2 expects 2712: green"]
+    D --> F["Neither test sees the other's invoice"]
+    E --> F
+```
+
 Here is the same two-test run as the last step, with the builder. Each test's invoice is built on its own, so the two columns on the right never touch:
 
 | Stage | Shared between tests | First test's invoice | Second test's invoice |

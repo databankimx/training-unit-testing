@@ -50,6 +50,15 @@ The act calls the tax function, and the assert checks that the answer is 3. The 
 
 The file is read-only, so open it from the file menu to see all three tests. Run it. All three pass.
 
+Each test runs the same three steps on different numbers. The flow shows the copies side by side.
+
+```mermaid
+flowchart LR
+    A["Test 1: 2.5 cents rounds up to 3"] --> B["Build invoice, call tax, check 3"]
+    C["Test 2: 2.4 cents rounds down to 2"] --> D["Build invoice, call tax, check 2"]
+    E["Test 3: 2.6 cents rounds up to 3"] --> F["Build invoice, call tax, check 3"]
+```
+
 ## What is wrong with this
 
 Look at the three tests side by side. The arrange section is copied three times, and so are the act and assert lines. If the way an invoice is built changes, all three tests have to change in the same way. If you add a fourth case, you copy the whole test again.

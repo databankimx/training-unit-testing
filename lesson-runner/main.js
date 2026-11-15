@@ -643,6 +643,12 @@ function registerHandlers() {
     if (popoutWindow !== null) popoutWindow.close();
   });
   ipcMain.handle('popout:state', () => ({ open: popoutWindow !== null }));
+  // The light or dark mode is shared by every window, so a change in one window is sent to all of them.
+  ipcMain.handle('theme:set', (_event, light) => {
+    for (const window of BrowserWindow.getAllWindows()) {
+      if (!window.isDestroyed()) window.webContents.send('theme:changed', Boolean(light));
+    }
+  });
 }
 
 // A window for the lesson page. The main window shows the whole runner. A pop-out shows the lesson alone.

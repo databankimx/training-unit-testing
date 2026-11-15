@@ -8,6 +8,17 @@ That check is about the type. The claim is "the library refuses it," and the typ
 
 The second test uses a date in the wrong shape, with slashes. The claim is about the format, not the calendar. The library refuses any text that is not `YYYY-MM-DD`, even a date that would be valid in another format. The check is the same, and it is the same kind of error.
 
+The library accepts a date only if it has the YYYY-MM-DD shape and names a real day. The flow shows both refusals.
+
+```mermaid
+flowchart TD
+    A["Text given to parse_date"] --> B{"Shape is YYYY-MM-DD?"}
+    B -->|"No, for example 2026/11/14"| C["Refused with an error"]
+    B -->|Yes| D{"Is it a real day?"}
+    D -->|"No, for example 2026-02-30"| E["Refused with an error"]
+    D -->|Yes| F["Accepted"]
+```
+
 Here is the first test in each language:
 
 ~~~examples readonly

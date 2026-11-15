@@ -4,6 +4,7 @@
 // Four custom fenced blocks are supported:
 //
 //   ```quiz            one question, with choices marked ○ (wrong) or ◉ (right), each followed by → feedback
+//   ```mermaid         a diagram. Mermaid draws it when the lesson is shown; its source is escaped, never run as HTML.
 //   ~~~spoiler         a hidden example that the learner can show. A tilde fence lets it hold a code block.
 //   ~~~examples        the same example in each course language, shown as tabs. It holds three fenced blocks,
 //                      labelled csharp, python, and javascript. Each one is editable and runs in place. Write
@@ -96,6 +97,13 @@ function examplesErrors(source) {
   }
   if (unknown.length > 0) errors.push(`unknown language ${unknown.join(', ')}`);
   return errors;
+}
+
+// A diagram keeps its source twice: as the text the page shows until Mermaid draws it, and as data-source, so a theme
+// change can draw it again. Both copies are escaped.
+function renderDiagram(md, source) {
+  const escape = md.utils.escapeHtml;
+  return `<div class="diagram" data-diagram><pre class="mermaid" data-source="${escape(source)}">${escape(source)}</pre></div>\n`;
 }
 
 let quizCounter = 0;
@@ -223,6 +231,7 @@ function createRenderer(options = {}) {
     const token = tokens[index];
     const info = (token.info || '').trim();
     if (info === 'quiz') return renderQuiz(md, token.content);
+    if (info === 'mermaid') return renderDiagram(md, token.content);
     if (info === 'spoiler') return renderSpoiler(md, token.content, env);
     const examples = examplesInfo(info);
     if (examples) return renderExamples(md, token.content, examples);

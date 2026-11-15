@@ -6,6 +6,15 @@ The first test claims that a paid invoice causes no calls to the sender. The che
 
 The second test claims that the amount in the call is the balance after a partial payment of 1000 cents. The starter has a placeholder where the amount goes. Work out the balance on paper, from the rule, and type it in. The failure shows the amount the library actually sent, and it should match once your value is right.
 
+The starter's check expects a call, but the claim says none should happen. The flow shows the decision you make.
+
+```mermaid
+flowchart TD
+    A["Starter: paid invoice, check expects one call"] --> B["Run: the mock recorded no call, so the check fails"]
+    B --> C{"What does the claim say?"}
+    C -->|"No reminder is due"| D["Change the check to expect no call: green"]
+```
+
 Here is the shape of the first change, in each language:
 
 ~~~examples readonly

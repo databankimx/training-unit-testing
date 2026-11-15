@@ -2,6 +2,19 @@
 
 Chapter 0 worked the invoice out by hand. Now run the library on that same invoice and compare the output with your numbers. This is the first check most of us make. You run the thing, you read what it printed, and you see whether it agrees with what you expected.
 
+Here is the check as a flow. The comparison happens in your head, and nothing is kept at the end.
+
+```mermaid
+flowchart TD
+    A["Run the library on invoice 1002"] --> B["Read the printed numbers"]
+    B --> C["Compare them with 207 in your head"]
+    C --> D{"Do they agree?"}
+    D -->|Yes| E["You decide it looks right"]
+    D -->|No| F["You decide something is wrong"]
+    E --> G["Nothing is recorded: the check ends here"]
+    F --> G
+```
+
 The program below prints four numbers for the invoice: the subtotal, the tax, the total, and the balance due. Press Run in any of the tabs.
 
 ~~~examples

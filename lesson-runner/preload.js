@@ -46,4 +46,8 @@ contextBridge.exposeInMainWorld('runner', {
   onPageNavigated: (callback) => {
     ipcRenderer.on('page:navigated', (_event, id) => callback(id));
   },
+  setTheme: (light) => ipcRenderer.invoke('theme:set', Boolean(light)),
+  onThemeChange: (callback) => {
+    ipcRenderer.on('theme:changed', (_event, light) => callback(light));
+  },
 });

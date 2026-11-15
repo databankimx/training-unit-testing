@@ -150,6 +150,10 @@
       /* Quizzes: the explanation sits beneath the chosen answer */
       .quiz { margin: 16px 0; padding: 12px 16px; border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 4px; background: var(--panel); }
       .quiz-question p { margin: 0.3em 0; font-weight: 600; }
+      /* Diagrams: Mermaid draws an SVG inside the box, so the box scrolls rather than the page */
+      .diagram { margin: 16px 0; padding: 12px; border: 1px solid var(--border); border-radius: 4px; background: var(--panel); overflow-x: auto; }
+      .diagram pre.mermaid { margin: 0; padding: 0; border: none; background: none; text-align: center; }
+      .diagram svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
       .quiz-choices { display: flex; flex-direction: column; gap: 4px; margin: 6px 0; }
       .quiz-choice { padding: 6px 10px; border-radius: 4px; }
       .quiz-choice:hover { background: var(--select); }
@@ -299,6 +303,7 @@
       </section>
     </div>
     <div id="toast" class="toast hidden" role="status"></div>
+    <script src="vendor/mermaid.min.js"></script>
     <script src="icons.js"></script>
     <script src="renderer.js"></script>
   </body>

@@ -8,6 +8,18 @@ The second test uses the paid invoice from the fake repository, on 14 November. 
 
 Each check does two jobs. The count says what the service reported, and the no-call check says what actually reached the sender. Both need to be right. If the service sent a reminder and still reported zero, the count alone would pass, and the mock would catch it.
 
+Two cases should end with no call at all. The flow shows both ending at the same check on the mock.
+
+```mermaid
+flowchart TD
+    A["Case 1: stub clock says 31 October, before the due date"] --> C["Service sends nothing"]
+    B["Case 2: paid invoice, overdue by date"] --> D["Nothing is owed, so no reminder is due"]
+    D --> C
+    C --> E{"Mock recorded zero calls?"}
+    E -->|Yes| F["Green"]
+    E -->|No| G["Red: a reminder went out that should not have"]
+```
+
 Here is the check that no call was made, in each language:
 
 ~~~examples readonly

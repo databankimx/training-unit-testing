@@ -83,6 +83,26 @@ Run it. It passes. Now make the library wrong, in a copy. Take out the `+ 5000` 
 
 The runner makes that copy for this step, and it changes only that copy. The library in `samples/` is never touched, so you can break it as often as you like.
 
+As written, the test follows its assertion, which cannot see the difference between 206 and 207:
+
+```mermaid
+flowchart TD
+    A["Name: tax on invoice 1002 is correct"] --> B["Comment: correct means 207 cents"]
+    B --> C["Assertion: the tax is not negative"]
+    C --> D{"Is the tax 206 or 207?"}
+    D --> E["Green either way: the assertion cannot tell them apart"]
+```
+
+This is what the test should be. The assertion now checks the claim, and the rule can turn it red:
+
+```mermaid
+flowchart TD
+    A["Name: tax on invoice 1002 is 207 cents"] --> B["Assertion: the tax equals 207"]
+    B --> C{"Is the tax 207?"}
+    C -->|Yes| D["Green: the claim held"]
+    C -->|"No, it is 206"| E["Red: the claim failed, and the test says so"]
+```
+
 Run the test again. It still passes. The truncated tax is 206 cents, which is not negative, so the assertion cannot see the difference. The claim says 207, and the test never checks for 207. The name promises more than the test delivers. That is the first way a test passes for the wrong reason.
 
 > **Common mistake.** Reading a test's name and assuming the assertion checks it. Read the last line as well. If the name and the assertion say different things, the test proves only what the assertion says.

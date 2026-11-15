@@ -29,6 +29,16 @@ return Math.floor((subtotalCents(invoice) * invoice.taxRateBasisPoints + 5000) /
 
 The subtotal times the rate, divided by 10000, is the exact tax, and it can have a fraction of a cent. A basis point is one hundredth of a percent, so the division takes that percent out of the subtotal. The `+ 5000` is half of 10000. Adding it before the division means any fraction of half a cent or more rounds up. Without it, the division just cuts the fraction off, so every fraction rounds down.
 
+With the rounding removed, the rows do not fail the same way. The flow shows which rows fail, and which one still passes.
+
+```mermaid
+flowchart TD
+    A["Rounding removed: only whole cents kept"] --> B["Row 2.5 cents: gets 2, expects 3: red"]
+    A --> C["Row 2.4 cents: gets 2, expects 2: green"]
+    A --> D["Row 2.6 cents: gets 2, expects 3: red"]
+    A --> E["Row invoice 1002: gets 206, expects 207: red"]
+```
+
 ## What the rows will show
 
 Here is the arithmetic for each row, with the rounding removed. The exact tax is the subtotal times the rate, divided by 10000. Without the rounding, you keep only the whole cents.

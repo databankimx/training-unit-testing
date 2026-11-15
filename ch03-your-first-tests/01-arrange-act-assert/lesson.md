@@ -10,6 +10,15 @@ Every test in this tutorial has three sections, in every language. Test writers 
 
 Take the sections one at a time. The test file for this step is read-only. Open it from the file menu whenever you want the full text, and Run executes it.
 
+Arrange, act and assert run in order, and only the assert decides the result.
+
+```mermaid
+flowchart LR
+    A["Arrange: build invoice 1002 with its lines"] --> B["Act: call the subtotal function"]
+    B --> C["Assert: the result equals 2505"]
+    C --> D{"Does the claim hold?"}
+```
+
 ## Arrange
 
 Arrange builds everything the test needs before it does anything. Here, that is the INV-1002 invoice: one line of three widgets at 835 cents each, with 825 basis points of tax. Nothing is calculated yet. You are only setting the scene.

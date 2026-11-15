@@ -41,6 +41,16 @@ The first test adds a payment of 1000 cents to the shared list. Its claim is tha
 
 Run the tests. In this order, the first test passes and the second fails with 1712 where it expects 2712. The second test is the one that breaks, but nothing in it is wrong. The fault is in the shared list, which the first test left behind.
 
+The shared list is the problem. The flow shows how the first test changes it, and how the second test then reads the changed list.
+
+```mermaid
+flowchart TD
+    A["PAYMENTS starts empty"] --> B["Test 1 runs: adds 1000 to the shared list"]
+    B --> C["Test 1 builds its invoice from the list, expects 1712: green"]
+    C --> D["Test 2 runs: the shared list still holds 1000"]
+    D --> E["Test 2 builds the invoice with the 1000 payment, expects 2712: red"]
+```
+
 Here is the same run, one stage at a time. Read down the middle column, which is the shared list:
 
 | Stage | Shared `PAYMENTS` list | What the second test gets | Result |

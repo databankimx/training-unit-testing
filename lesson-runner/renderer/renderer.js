@@ -95,11 +95,17 @@
     document.body.classList.toggle('light', light);
     ui.theme.checked = light;
     localStorage.setItem('theme', light ? 'light' : 'dark');
+    if (ui.lesson) renderDiagrams();
   }
 
   function setupTheme() {
     applyTheme(localStorage.getItem('theme') === 'light');
-    ui.theme.addEventListener('change', () => applyTheme(ui.theme.checked));
+    ui.theme.addEventListener('change', () => {
+      applyTheme(ui.theme.checked);
+      window.runner.setTheme(ui.theme.checked);
+    });
+    // Another window, such as the pop-out, changed the mode: follow it.
+    window.runner.onThemeChange((light) => applyTheme(light));
   }
 
   // Ctrl with the mouse wheel changes the lesson's text size. The page itself never zooms.
@@ -809,6 +815,29 @@
 
   // Shows a lesson that has already been loaded. A normal move uses it, and so does a redraw after a progress reset.
   // The tab the learner is on stays put, so moving between steps doesn't switch them back to the Lesson tab.
+  // Mermaid draws the diagrams in the lesson. The bundle is loaded in index.html before this script. Each diagram
+  // keeps its source in data-source, so it can be drawn again when the theme changes.
+  async function renderDiagrams() {
+    const nodes = Array.from(ui.lesson.querySelectorAll('pre.mermaid'));
+    if (nodes.length === 0 || !window.mermaid) return;
+    nodes.forEach((node) => {
+      node.removeAttribute('data-processed');
+      node.textContent = node.dataset.source;
+    });
+    window.mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: 'strict',
+      theme: document.body.classList.contains('light') ? 'default' : 'dark',
+    });
+    try {
+      await window.mermaid.run({ nodes });
+    } catch (error) {
+      nodes.forEach((node) => {
+        if (!node.querySelector('svg')) node.textContent = `Diagram error: ${error.message}`;
+      });
+    }
+  }
+
   function displayLesson(lesson) {
     if (state.current) scrollPositions.set(state.current.id, ui.lesson.scrollTop);
     state.current = lesson;
@@ -823,6 +852,7 @@
     indexLessonParts(ui.lesson);
     buildSamples(ui.lesson);
     decorateCodeBlocks(ui.lesson);
+    renderDiagrams();
     applyLanguage(currentLanguage());
     restoreProgress(lesson.progress || { quizzes: {}, spoilers: {} });
     ui.output.textContent = outputMessage(lesson);

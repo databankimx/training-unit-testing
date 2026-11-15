@@ -8,6 +8,19 @@ The test in this step is written the same way. Its claim is "two overdue invoice
 
 Now read the assert section. The first two lines check the claim. The count is two, and the sender received two calls. The third line checks something else: that the clock was read exactly once. That line is the problem.
 
+The test contains three checks, and only two belong to the claim. The flow shows which is which.
+
+```mermaid
+flowchart TD
+    A["Claim: two overdue invoices get two reminders"] --> B["Check: reminders sent equals 2"]
+    A --> C["Check: sender received 2 calls"]
+    A --> D["Check: clock was read exactly once"]
+    B --> E["Part of the claim: stays"]
+    C --> E
+    D --> F["Not part of the claim: plumbing"]
+    F --> G["Breaks if the service reads the clock another way, with the same reminders"]
+```
+
 Here is the same test in each language:
 
 ~~~examples readonly

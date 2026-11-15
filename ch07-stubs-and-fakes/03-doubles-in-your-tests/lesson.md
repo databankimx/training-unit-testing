@@ -8,6 +8,16 @@ In the second test, the invoice should be paid in full. Give it a payment of 271
 
 The placeholders are `None` in Python, `null` in JavaScript, and `-1` in C#. Both tests fail until you replace them. Work each value out on paper first.
 
+Each test uses a double for each dependency. The flow shows what each one contributes to the check.
+
+```mermaid
+flowchart LR
+    A["Stub clock: 14 November"] --> D["Reminder service"]
+    B["Fake repository: one invoice with a partial payment"] --> D
+    D --> C["Recording sender: captures the amount"]
+    C --> E["Test compares the captured amount with the expected one"]
+```
+
 Here is the shape of the change, shown for the first test:
 
 ~~~examples readonly

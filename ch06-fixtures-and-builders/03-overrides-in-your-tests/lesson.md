@@ -6,6 +6,16 @@ The first test is about a partial payment. The starter builds the invoice with n
 
 The second test is about a full payment. Add a payment of 2712 cents as an override. Then work out what is left to pay.
 
+An override changes one part of the default invoice. The flow shows how the first homework test's payment reaches the balance it checks.
+
+```mermaid
+flowchart LR
+    A["Builder defaults: 2712 owed, no payments"] --> B["Test passes a payment of 1000"]
+    B --> C["Invoice now holds one partial payment"]
+    C --> D["Library computes the balance: 1712"]
+    D --> E{"Matches the claim: 1712?"}
+```
+
 Here is the shape of an override, shown for the first test. Look at the call that builds the invoice. You only add the payment, and you leave the rest of the invoice to the defaults:
 
 ~~~examples readonly

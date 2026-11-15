@@ -18,6 +18,18 @@ The calculations are small, and none of them depend on anything outside the invo
 - The balance due is the total less the payments. A negative balance is a credit.
 - An invoice is overdue when money is still owed and today is after the due date.
 
+The calculations depend on each other. The diagram shows which number feeds which, so you can see where a wrong value would come from.
+
+```mermaid
+flowchart LR
+    A["Line: quantity x unit price"] --> B["Subtotal in cents"]
+    B --> C["Tax: subtotal x rate, plus 5000, divided by 10000"]
+    B --> D["Total: subtotal plus tax"]
+    C --> D
+    D --> E["Balance due: total minus payments"]
+    F["Payments in cents"] --> E
+```
+
 ## One invoice, worked out by hand
 
 Take an invoice with one line: two widgets at 12.50 each, taxed at 8.25 percent, with nothing paid yet.
