@@ -94,6 +94,7 @@ const TEST_PACKAGES = [
   ['Microsoft.NET.Test.Sdk', '18.12.0'],
   ['NUnit', '4.6.1'],
   ['NUnit3TestAdapter', '6.3.1'],
+  ['coverlet.collector', '10.0.1'],
   ['NSubstitute', '6.2.0'],
   ['NSubstitute.Analyzers.CSharp', '1.0.17'],
 ];

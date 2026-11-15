@@ -188,6 +188,18 @@ Name the exception the claim is about. A check that catches a generic base type 
 | pytest (Python) | `pytest -v` | JUnit XML |
 | node:test (JavaScript) | `node --test` | TAP |
 
+## Measure coverage
+
+Coverage tells you which lines a test run reached. It doesn't tell you whether a test checked the right value, which is why chapter 12 treats it as a signal and not a goal. Run these from the folder that holds the test and the library.
+
+| Framework | Command | What you get |
+| --- | --- | --- |
+| NUnit (C#) | `dotnet test --collect:"XPlat Code Coverage"` | A `coverage.cobertura.xml` file under `TestResults` |
+| pytest (Python) | `coverage run --source=invoicing -m pytest`, then `coverage report -m` | A table of lines each file has and the lines no test reached |
+| node:test (JavaScript) | `node --experimental-test-coverage --test` | A coverage table after the test results |
+
+The runner's C# test projects already reference `coverlet.collector`, which is what makes the first command work. The Node flag is still marked experimental in the Node.js docs.
+
 ## Notes across frameworks
 
 - In pytest, a test function's name must start with `test_`, or pytest will not collect it.
