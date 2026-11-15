@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Fixtures and Builders",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review why shared mutable fixtures cause order-dependent failures, and how a builder with defaults avoids them.",
+  "prerequisites": [
+    "Overrides in Your Tests"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Doubles in Your Tests",
+  "runtime": "multi",
+  "minutes": 14,
+  "objective": "Write two tests with a fake repository and a stub clock, one for a partial payment and one for a paid invoice, and fill in the expected results.",
+  "prerequisites": [
+    "A Fake Repository"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

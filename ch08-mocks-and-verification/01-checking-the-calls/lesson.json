@@ -1,0 +1,19 @@
+{
+  "title": "Checking the Calls",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Use a mock sender to check that the service makes one call per overdue invoice, with the right address and amount.",
+  "prerequisites": [
+    "Summary: Stubs and Fakes"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

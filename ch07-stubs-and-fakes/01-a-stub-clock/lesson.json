@@ -1,0 +1,19 @@
+{
+  "title": "A Stub Clock",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Use a stub clock to fix today's date, and test the reminder on the due date and the day after.",
+  "prerequisites": [
+    "Summary: Fixtures and Builders"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

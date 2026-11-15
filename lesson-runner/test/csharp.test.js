@@ -65,6 +65,8 @@ test('a C# test project references NUnit and the library, and a copied library i
   assert.match(text, /<IsTestProject>true<\/IsTestProject>/);
   assert.match(text, /<PackageReference Include="NUnit" Version="4\.6\.1" \/>/);
   assert.match(text, /<PackageReference Include="NUnit3TestAdapter" Version="6\.3\.1" \/>/);
+  assert.match(text, /<PackageReference Include="NSubstitute" Version="6\.2\.0" \/>/);
+  assert.match(text, /<PackageReference Include="NSubstitute\.Analyzers\.CSharp" Version="1\.0\.17" \/>/);
   assert.match(text, /<PackageReference Include="Microsoft\.NET\.Test\.Sdk" Version="18\.12\.0" \/>/);
   assert.doesNotMatch(text, /OutputType/);
   assert.doesNotMatch(text, /Compile Remove/);

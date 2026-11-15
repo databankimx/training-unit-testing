@@ -1,0 +1,19 @@
+{
+  "title": "The Shared Fixture",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "See a shared fixture cause a test to fail that did not change, and find out why it depends on which test ran first.",
+  "prerequisites": [
+    "Summary: Test-Driven Development"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

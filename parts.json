@@ -7,8 +7,29 @@
         "ch01-checking-by-hand",
         "ch02-what-a-test-claims",
         "ch03-your-first-tests",
-        "ch04-parameterized-tests",
-        "ch05-test-driven-development"
+        "ch04-parameterized-tests"
+      ]
+    },
+    {
+      "title": "Part II - Test-Driven Development",
+      "chapters": [
+        "ch05-test-driven-development",
+        "ch06-fixtures-and-builders"
+      ]
+    },
+    {
+      "title": "Part III - Test Doubles",
+      "chapters": [
+        "ch07-stubs-and-fakes",
+        "ch08-mocks-and-verification",
+        "ch09-choosing-what-to-mock"
+      ]
+    },
+    {
+      "title": "Part IV - Judgment",
+      "chapters": [
+        "ch10-errors-and-boundaries",
+        "ch11-tests-that-prove-nothing"
       ]
     }
   ]

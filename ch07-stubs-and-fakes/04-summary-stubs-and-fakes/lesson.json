@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Stubs and Fakes",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review the difference between a stub and a fake, and why a test states which double it uses.",
+  "prerequisites": [
+    "Doubles in Your Tests"
+  ]
+}

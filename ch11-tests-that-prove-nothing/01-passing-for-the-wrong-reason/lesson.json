@@ -1,0 +1,19 @@
+{
+  "title": "Passing for the Wrong Reason",
+  "runtime": "multi",
+  "minutes": 14,
+  "objective": "Recognise four tests that pass whatever the library does: no assertion, a tautology, an expected value taken from the code, and a swallowed failure.",
+  "prerequisites": [
+    "Summary: Errors and Boundaries"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

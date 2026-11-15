@@ -1,0 +1,19 @@
+{
+  "title": "A Test of the Mock",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Recognise a test that checks the double instead of the program, and a check that only asks for a value that is not null.",
+  "prerequisites": [
+    "Break the Rule"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

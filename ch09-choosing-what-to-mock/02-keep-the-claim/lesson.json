@@ -1,0 +1,21 @@
+{
+  "title": "Keep the Claim",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Read a failure caused by a check on how a stub was used, decide whether the claim needs it, and remove it.",
+  "prerequisites": [
+    "Checking How, Not What"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

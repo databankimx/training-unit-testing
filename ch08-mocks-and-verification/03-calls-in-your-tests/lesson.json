@@ -1,0 +1,21 @@
+{
+  "title": "Calls in Your Tests",
+  "runtime": "multi",
+  "minutes": 14,
+  "objective": "Read a mock failure for a call that never happened, change the check to match the claim, and fill in the amount of a reminder after a partial payment.",
+  "prerequisites": [
+    "No Calls When Nothing Is Owed"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

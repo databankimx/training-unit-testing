@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Mocks and Verification",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review when a mock is the right double, and why the calls at the boundary are the claim.",
+  "prerequisites": [
+    "Calls in Your Tests"
+  ]
+}

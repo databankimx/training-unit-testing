@@ -1,0 +1,19 @@
+{
+  "title": "A Builder With Defaults",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Read a builder that gives each test a fresh invoice, and see the same two tests pass in any order.",
+  "prerequisites": [
+    "The Shared Fixture"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

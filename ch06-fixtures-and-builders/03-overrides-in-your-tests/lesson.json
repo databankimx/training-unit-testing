@@ -1,0 +1,21 @@
+{
+  "title": "Overrides in Your Tests",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Write two tests that override one field of the builder, work out their expected balances by hand, and see them fail before the answers are typed in.",
+  "prerequisites": [
+    "A Builder With Defaults"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

@@ -1,0 +1,19 @@
+{
+  "title": "No Calls When Nothing Is Owed",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Check that the sender is never called for an invoice that is not overdue or is already paid.",
+  "prerequisites": [
+    "Checking the Calls"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

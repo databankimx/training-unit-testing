@@ -1,0 +1,19 @@
+{
+  "title": "The Edge of the Due Date",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Test the exact due date, the day after it, and a paid invoice past its due date.",
+  "prerequisites": [
+    "Summary: Choosing What to Mock"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

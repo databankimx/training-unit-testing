@@ -1,0 +1,21 @@
+{
+  "title": "A Credit Is Not Overdue",
+  "runtime": "multi",
+  "minutes": 14,
+  "objective": "Write a check for an overpaid invoice, which has a negative balance, and fill in the result the claim requires.",
+  "prerequisites": [
+    "Refusing a Bad Date"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

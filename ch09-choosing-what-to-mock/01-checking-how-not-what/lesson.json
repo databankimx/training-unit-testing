@@ -1,0 +1,19 @@
+{
+  "title": "Checking How, Not What",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Recognise a check on how often a stub was used, and see why it is not part of the claim.",
+  "prerequisites": [
+    "Summary: Mocks and Verification"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

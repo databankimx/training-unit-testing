@@ -1,0 +1,19 @@
+{
+  "title": "Refusing a Bad Date",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Test that an impossible date and a date in the wrong shape are refused, and check the exception type.",
+  "prerequisites": [
+    "The Edge of the Due Date"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

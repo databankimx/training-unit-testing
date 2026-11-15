@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Tests That Prove Nothing",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review the ways a test can pass for the wrong reason, and the one question that catches them.",
+  "prerequisites": [
+    "A Test of the Mock"
+  ]
+}

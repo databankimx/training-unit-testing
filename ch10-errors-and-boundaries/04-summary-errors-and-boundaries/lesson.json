@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Errors and Boundaries",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review how to test the edges of a rule and the refusal of bad input.",
+  "prerequisites": [
+    "A Credit Is Not Overdue"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "title": "A Fake Repository",
+  "runtime": "multi",
+  "minutes": 12,
+  "objective": "Use an in-memory fake repository with real logic, and check what the fake sender recorded.",
+  "prerequisites": [
+    "A Stub Clock"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

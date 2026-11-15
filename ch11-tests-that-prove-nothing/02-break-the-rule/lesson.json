@@ -1,0 +1,23 @@
+{
+  "title": "Break the Rule",
+  "runtime": "multi",
+  "minutes": 14,
+  "objective": "Break the tax rounding in a copy of the library, and see which tests catch it and which stay green.",
+  "prerequisites": [
+    "Passing for the Wrong Reason"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "+ 5000",
+  "todo": "TODO (homework): remove the half-up rounding from this line, then Run. Note which tests fail."
+}

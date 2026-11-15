@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Choosing What to Mock",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review how to choose a double for each dependency, and which of its calls belong in the claim.",
+  "prerequisites": [
+    "Keep the Claim"
+  ]
+}
