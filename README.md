@@ -1,5 +1,9 @@
 # Unit Testing With Fixtures and Mocks
 
+## What This Tutorial Covers
+
+This tutorial covers the fundamentals of unit testing, including writing assertions, using test doubles, understanding what tests actually prove, and practicing test-driven development. Examples are provided in C#, Python, and JavaScript, using a small invoicing library to illustrate each concept.
+
 ## License and Support
 
 This repository is provided under the [MIT License](LICENSE). You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell the materials in this repository, subject to the terms of that license.
