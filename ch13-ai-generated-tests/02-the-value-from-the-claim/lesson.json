@@ -1,0 +1,21 @@
+{
+  "title": "The Value From the Claim",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Replace a generated test's expected value, which was copied from the library, with the value worked out from the claim.",
+  "prerequisites": [
+    "Tests an Assistant Might Write"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Summary: Breaking the Code on Purpose",
+  "runtime": "none",
+  "minutes": 6,
+  "objective": "Review mutation checking, and what coverage can and cannot say.",
+  "prerequisites": [
+    "Coverage Is a Signal"
+  ]
+}

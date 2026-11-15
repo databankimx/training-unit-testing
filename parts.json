@@ -29,7 +29,12 @@
       "title": "Part IV - Judgment",
       "chapters": [
         "ch10-errors-and-boundaries",
-        "ch11-tests-that-prove-nothing"
+        "ch11-tests-that-prove-nothing",
+        "ch12-breaking-the-code-on-purpose",
+        "ch13-ai-generated-tests",
+        "ch14-volume-discount",
+        "ch15-a-checklist-for-a-useful-test",
+        "ch16-appendix-framework-cheat-sheet"
       ]
     }
   ]

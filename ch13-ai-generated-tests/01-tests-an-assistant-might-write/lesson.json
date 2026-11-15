@@ -1,0 +1,19 @@
+{
+  "title": "Tests an Assistant Might Write",
+  "runtime": "multi",
+  "minutes": 10,
+  "objective": "Recognise a generated test whose expected value comes from the library, and tell it apart from a test that checks the claim.",
+  "prerequisites": [
+    "Summary: Breaking the Code on Purpose"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "none"
+}

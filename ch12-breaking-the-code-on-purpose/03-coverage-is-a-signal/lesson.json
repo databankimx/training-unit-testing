@@ -1,0 +1,9 @@
+{
+  "title": "Coverage Is a Signal",
+  "runtime": "none",
+  "minutes": 8,
+  "objective": "Explain what a coverage report says about a line, and what it does not say.",
+  "prerequisites": [
+    "Break the Due Date"
+  ]
+}

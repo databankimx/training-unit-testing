@@ -26,4 +26,10 @@ public static class Invoices
     {
         return 0;
     }
+
+    // The volume discount, in cents. This is a stub, written test first in chapter 14.
+    public static long VolumeDiscountCents(Invoice invoice)
+    {
+        return 0; // volume discount stub
+    }
 }

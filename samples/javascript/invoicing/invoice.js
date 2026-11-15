@@ -35,3 +35,8 @@ export function isOverdue(invoice, today) {
 export function lateFee(invoice, today) {
   return 0;
 }
+
+// The volume discount, in cents. This is a stub, written test first in chapter 14.
+export function volumeDiscountCents(invoice) {
+  return 0; // volume discount stub
+}

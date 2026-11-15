@@ -1,0 +1,9 @@
+{
+  "title": "Asking and Checking",
+  "runtime": "none",
+  "minutes": 8,
+  "objective": "Describe how to ask an assistant for tests, and the three checks that show whether the tests are worth keeping.",
+  "prerequisites": [
+    "The Value From the Claim"
+  ]
+}

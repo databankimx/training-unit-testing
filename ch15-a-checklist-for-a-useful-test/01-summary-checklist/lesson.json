@@ -1,0 +1,9 @@
+{
+  "title": "Summary: A Checklist for a Useful Test",
+  "runtime": "none",
+  "minutes": 8,
+  "objective": "Review the six questions to ask of any test, and see how each one ties back to a chapter.",
+  "prerequisites": [
+    "Make the Tests Pass"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Framework Cheat Sheet",
+  "runtime": "none",
+  "minutes": 10,
+  "objective": "Find how to declare a test, parameterize it, share setup, use a mock, expect an exception, and run the suite, in each framework.",
+  "prerequisites": [
+    "Summary: A Checklist for a Useful Test"
+  ]
+}

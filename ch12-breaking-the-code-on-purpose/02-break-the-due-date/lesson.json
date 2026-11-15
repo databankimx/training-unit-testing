@@ -1,0 +1,23 @@
+{
+  "title": "Break the Due Date",
+  "runtime": "multi",
+  "minutes": 14,
+  "objective": "Change the date rule in a copy of the library so the due date itself counts as overdue, and see which test catches it.",
+  "prerequisites": [
+    "Break the Boundary"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "today) >",
+  "todo": "TODO (homework): change this rule to >=, then Run. Note which test turns red."
+}

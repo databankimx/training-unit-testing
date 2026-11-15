@@ -1,0 +1,21 @@
+{
+  "title": "Tests First",
+  "runtime": "multi",
+  "minutes": 16,
+  "objective": "Work out the volume discount by hand from the rule, write the expected values into the tests, and see the tests go red against the stub.",
+  "prerequisites": [
+    "Asking and Checking"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "test",
+  "section": "homework",
+  "spoiler": true
+}

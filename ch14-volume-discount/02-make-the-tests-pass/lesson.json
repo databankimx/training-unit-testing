@@ -1,0 +1,23 @@
+{
+  "title": "Make the Tests Pass",
+  "runtime": "multi",
+  "minutes": 16,
+  "objective": "Replace the volume discount stub with the rule, so the three tests from the last step go green.",
+  "prerequisites": [
+    "Tests First"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "volume discount stub",
+  "todo": "TODO (homework): replace this stub with the rule from the claim, then Run. The tests should all turn green."
+}

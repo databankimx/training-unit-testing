@@ -61,3 +61,8 @@ def is_overdue(invoice: Invoice, today: str) -> bool:
 def late_fee(invoice: Invoice, today: str) -> int:
     """The late fee, in cents. This is a stub, written test first in chapter 5."""
     return 0
+
+
+def volume_discount_cents(invoice: Invoice) -> int:
+    """The volume discount, in cents. This is a stub, written test first in chapter 14."""
+    return 0  # volume discount stub

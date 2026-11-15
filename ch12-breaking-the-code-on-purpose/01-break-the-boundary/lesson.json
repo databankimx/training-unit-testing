@@ -1,0 +1,23 @@
+{
+  "title": "Break the Boundary",
+  "runtime": "multi",
+  "minutes": 14,
+  "objective": "Change the balance rule in a copy of the library so a paid invoice counts as overdue, and see which test catches it.",
+  "prerequisites": [
+    "Summary: Errors and Boundaries"
+  ],
+  "languages": [
+    "csharp",
+    "python",
+    "javascript"
+  ],
+  "checks": "tests",
+  "library": [
+    "invoice"
+  ],
+  "edit": "library",
+  "section": "homework",
+  "spoiler": true,
+  "mark": "> 0",
+  "todo": "TODO (homework): change this rule to >= 0, then Run. Note which test turns red."
+}
