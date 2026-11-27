@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 2,
+  "name": "Unit Testing With Fixtures and Mocks",
+  "folder": "training-unit-testing",
+  "repoUrl": "https://github.com/databankimx/training-unit-testing.git",
+  "branch": "dev",
+  "baseDirectory": "C:\\Development\\training",
+  "runTests": true,
+  "installs": {
+    "git": { "install": true, "winget": "Git.Git" },
+    "powershell7": { "install": true, "pinned": "7", "winget": "Microsoft.PowerShell" },
+    "node": { "install": true, "pinned": "24", "orNewer": true, "winget": "OpenJS.NodeJS.LTS" },
+    "python": {
+      "install": true,
+      "pinned": "3.12",
+      "sideBySide": true,
+      "winget": "Python.Python.3.12"
+    },
+    "dotnet": {
+      "install": true,
+      "pinned": "10",
+      "winget": "Microsoft.DotNet.SDK.10"
+    },
+    "vcRuntime": { "install": true },
+    "vscode": {
+      "install": true,
+      "winget": "Microsoft.VisualStudioCode",
+      "extensions": [ "ms-dotnettools.csharp", "ms-dotnettools.csdevkit", "ms-python.python" ]
+    },
+    "notepadPlusPlus": { "install": false, "winget": "Notepad++.Notepad++" },
+    "buildTools": { "install": false }
+  },
+  "steps": [
+    {
+      "name": "Repository environment (.venv)",
+      "type": "python-venv",
+      "folder": ".",
+      "path": ".venv",
+      "requirements": "requirements.txt",
+      "requires": [ "python" ]
+    },
+    {
+      "name": "npm packages",
+      "type": "npm",
+      "folder": ".",
+      "command": "ci",
+      "requires": [ "node" ]
+    },
+    {
+      "name": "Course tests",
+      "type": "npm-run",
+      "folder": ".",
+      "script": "test",
+      "runTests": true,
+      "requires": [ "node" ]
+    }
+  ],
+  "launch": {
+    "ide": "vscode",
+    "kind": "electron",
+    "folder": ".",
+    "main": "lesson-runner/main.js"
+  }
+}
