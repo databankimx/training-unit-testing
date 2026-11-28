@@ -6,43 +6,116 @@ The tutorial lives at [databankimx/training-unit-testing](https://github.com/dat
 
 ## Quick setup with the script
 
-`setup.ps1` does the whole setup, and then starts the course. You can run it from anywhere. If it isn't inside the repository, it clones the repository into `C:\Development\training\training-unit-testing` and runs the cloned copy. It then:
+### What gets installed
 
-- checks for Git, and installs it with winget if it's missing
-- checks for Node.js 24 or later, and installs the LTS release with winget if it's missing
-- checks for Python 3.12 or later, and installs it with winget if it's missing
-- checks for the .NET 10 SDK, which runs the C# samples and tests, and installs it with winget if it's missing
-- checks for the C++ Build Tools, which are the fallback if Electron's download fails
-- checks for Visual Studio Code, and installs it with winget if it's missing
-- creates the Python virtual environment in `.venv` at the repository root, and installs `requirements.txt` into it
-- installs every npm package in one step, from `package.json` and `package-lock.json` at the repository root, and makes sure the Electron binary is present
-- opens the repository in VS Code, and starts the lesson runner in its own window
+By default, the setup installs:
 
-It's safe to run more than once. Anything already in place is skipped.
+* Git
+* PowerShell 7
+* Node.js 24 or newer
+* Python 3.12
+* .NET SDK 10
+* Microsoft Visual C++ runtime
+* VS Code, with the extensions ms-dotnettools.csharp, ms-dotnettools.csdevkit, ms-python.python
+* Notepad++
 
-Open PowerShell, and run:
+The C++ Build Tools aren't installed up front. The script installs them only if Electron's binary can't download.
+
+The setup then runs these steps: Repository environment (.venv); npm packages; Course tests. At the end it opens the repository in VS Code and starts the lesson runner window (Electron).
+
+### Getting started
+
+There are three methods available to set up this tutorial. They are currently Windows-only.
+
+#### Full Automation (if you don't have Git currently set up)
+
+This process will install Git and copy the repository to a subfolder of `C:\Development\training` and install all necessary software and extensions for the tutorial's lesson runner.
+
+1. Obtain the tutorial's GitHub slug name, which is `training-unit-testing`
+2. Open PowerShell using "Run as Administrator"
+3. Run the script below
 
 ```pwsh
+# Obtain the load tutorial script
+irm https://raw.githubusercontent.com/databankimx/training-shared-template/main/load-tutorial.ps1 -OutFile "$env:TEMP\load-tutorial.ps1"
+
+# Perform automated setup
+powershell -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\load-tutorial.ps1" -RepoUrl https://github.com/databankimx/training-unit-testing.git
+```
+
+#### Automated Setup from Local Repo (assumes you already have Git installed and set up)
+
+In this process, you pull the existing repository and then run its setup script, which installs all necessary software and extensions for the tutorial's lesson runner.
+
+1. Obtain the tutorial's GitHub slug name, which is `training-unit-testing`
+2. Open PowerShell using "Run as Administrator"
+3. If you will use the default base directory `C:\Development\training`, run the following:
+
+```pwsh
+# Create the base folder if it doesn't exist yet
+New-Item -ItemType Directory -Force -Path C:\Development\training | Out-Null
+```
+
+4. Clone the repository. If you're using a different base directory, replace `C:\Development\training` with your path:
+
+```pwsh
+# Go there and clone the tutorial
+cd C:\Development\training
+git clone https://github.com/databankimx/training-unit-testing.git
+cd training-unit-testing
+```
+
+5. If desired, edit the setup configuration, which determines what software is installed automatically (see "Change what gets installed" below)
+
+```pwsh
+# Optional: edit setup.json before installations
+notepad setup.json
+```
+
+6. Save the configuration if you edited it, then run the setup script
+
+##### If using the default base path, run this:
+
+```pwsh
+# Run the setup
 powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1
 ```
 
-The `-ExecutionPolicy Bypass` part lets this one script run. It doesn't change any setting on your machine.
-
-The C++ Build Tools are about 4 to 5 GB and can take several minutes. They need an **Administrator** PowerShell. If you aren't an administrator, the script stops at that step and says so. Open PowerShell as Administrator, and run the script again.
-
-These options change what the script does:
-
-- `-SkipInstall` checks your setup without installing anything. It doesn't open VS Code or start the runner either.
-- `-NoLaunch` installs everything, but doesn't open VS Code or start the runner.
-- `-RunTests` runs the runner's tests after the install. They aren't run by default.
+##### If using a different base path, replace `<BASE_DIR>` with your path and run this:
 
 ```pwsh
-powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1 -SkipInstall
+# Run the setup
+powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1 -BaseDirectory <BASE_DIR>
 ```
 
-When the script finishes, it prints a summary. Every line should say `ok`, or say `started` or `not started` for the runner.
+#### Manual Setup from Local Repo
 
-Installing uses winget. If winget isn't available, install **App Installer** from the Microsoft Store first. Company policy can block installs, in which case the script stops and you'll need IT.
+If you want to do everything manually, you can pull the repository and set up software on your own.
+
+1. Obtain the tutorial's GitHub slug name, which is `training-unit-testing`
+2. Run the script below
+
+```pwsh
+git clone https://github.com/databankimx/training-unit-testing.git
+```
+
+3. Review README.md and QUICKSTART.md in the repository for instructions for manual setup.
+
+### Switches and notes
+
+* `-SkipInstall` checks what's installed and installs nothing.
+* `-NoLaunch` runs the setup but doesn't open VS Code or start the runner.
+* `-SkipTests` skips the course tests, which the setup runs by default.
+* Installing uses winget. If winget isn't available, install **App Installer** from the Microsoft Store first. Company policy can block installs, in which case the script stops and you'll need IT.
+* If an install needs administrator rights, the script stops before installing anything and asks you to run it again from an Administrator PowerShell window.
+
+### Change what gets installed
+
+The settings are in `setup.json`, in the repository folder. Open it in any text editor:
+
+* Set an install's `"install"` to `true` to include it, or `false` to skip it.
+* `"pinned"` sets the version. `"extensions"` lists the VS Code extensions to add.
+* Save the file, then run `setup.ps1` again. It skips what's already installed.
 
 ## Manual setup
 

@@ -3,7 +3,7 @@
   "name": "Unit Testing With Fixtures and Mocks",
   "folder": "training-unit-testing",
   "repoUrl": "https://github.com/databankimx/training-unit-testing.git",
-  "branch": "dev",
+  "branch": "main",
   "baseDirectory": "C:\\Development\\training",
   "runTests": true,
   "installs": {
